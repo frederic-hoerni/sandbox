@@ -7,7 +7,12 @@ on:
 jobs:
   tests:
     runs-on: ubuntu-24.04
+    strategy:
+      matrix:
+        flavour:
+          - apple
+          - lime
     steps:
-    - name: step1
+    - name: step1 with flavour=${{ matrix.flavour }}
       run: |
-          echo test step1
+          echo test step1 / flavour=${{ matrix.flavour }}
